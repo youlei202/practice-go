@@ -19,19 +19,15 @@ func mergeSort(nums []int, l int, r int, temp []int) {
 	mergeSort(nums, m, r, temp)
 
 	i, j, k := l, m, l
-	for {
-		if i < m || j < r {
-			if i >= m || (j < r && nums[j] <= nums[i]) {
-				temp[k] = nums[j]
-				j += 1
-			} else {
-				temp[k] = nums[i]
-				i += 1
-			}
-			k += 1
+	for i < m || j < r {
+		if i >= m || (j < r && nums[j] <= nums[i]) {
+			temp[k] = nums[j]
+			j += 1
 		} else {
-			break
+			temp[k] = nums[i]
+			i += 1
 		}
+		k += 1
 	}
 	for k = l; k < r; k++ {
 		nums[k] = temp[k]

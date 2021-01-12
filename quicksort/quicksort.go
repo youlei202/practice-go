@@ -15,24 +15,13 @@ func quickSort(nums []int, l int, r int) {
 	}
 	i, j := l, r-1
 	pivot := nums[i]
-	for {
-		if i >= j {
-			break
-		}
-		for {
-			if i < j && nums[j] >= pivot {
-				j -= 1
-			} else {
-				break
-			}
+	for i < j {
+		for i < j && nums[j] >= pivot {
+			j -= 1
 		}
 		nums[i] = nums[j]
-		for {
-			if i < j && nums[i] <= pivot {
-				i += 1
-			} else {
-				break
-			}
+		for i < j && nums[i] <= pivot {
+			i += 1
 		}
 		nums[j] = nums[i]
 	}
