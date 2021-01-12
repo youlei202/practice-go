@@ -6,14 +6,14 @@ import (
 )
 
 func QuickSort(nums []int, len int) {
-	quickSort(nums, 0, len-1)
+	quickSort(nums, 0, len)
 }
 
 func quickSort(nums []int, l int, r int) {
-	if l >= r {
+	if l >= r-1 {
 		return
 	}
-	i, j := l, r
+	i, j := l, r-1
 	pivot := nums[i]
 	for {
 		if i >= j {
@@ -37,7 +37,7 @@ func quickSort(nums []int, l int, r int) {
 		nums[j] = nums[i]
 	}
 	nums[i] = pivot
-	quickSort(nums, l, i-1)
+	quickSort(nums, l, i)
 	quickSort(nums, i+1, r)
 }
 
